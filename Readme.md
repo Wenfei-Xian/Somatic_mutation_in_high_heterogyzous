@@ -13,3 +13,9 @@ cat tmp | parallel -j 64
 cat tmp.*.out > upper.reads.coordination.txt
 rm tmp tmp.*.out
 ```
+## step3 check the position of short in haploid assembly located in the suitable position
+```
+perl /ebio/abt6/wxian/script/HQSNV/split.pl upper.reads.coordination.txt
+for i in {1..12};do echo "python3 /ebio/abt6/wxian/script/HQSNV/step3.contigsfilter.perfectalign.py --ranges upper.reads.coordination.txt.Chr$i.ID --input_bam  ../01.hifiasm_0.24.0/09.bwa_alignment_v1/upper.sorted.mdup.bam --output_bam hap.Chr$i.upper.sorted.mdup.bam --output_txt hap.Chr$i.upper.sorted.mdup.bam.out.txt --target_chr Chr$i" ;done > tmp1
+cat tmp1 | parallel -j 24
+```
