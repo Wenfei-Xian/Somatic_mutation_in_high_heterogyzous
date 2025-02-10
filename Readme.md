@@ -1,4 +1,4 @@
-# Identification misalignment of short reads in haploid assembly
+# 1) Identification misalignment of short reads in haploid assembly
 
 ## step1 get the position of diploid assembly in haploid assembly
 ```
