@@ -22,7 +22,7 @@ perl /ebio/abt6/wxian/script/HQSNV/split.pl lower.reads.coordination.txt
 ```
 ## step4 compare the actual position and the expected position
 ```
-for i in {1..12};do echo "python3 /ebio/abt6/wxian/script/HQSNV/step3.contigsfilter.perfectalign.py --ranges lower.reads.coordination.txt.Chr$i.ID --input_bam lower.sorted.mdup.haploid.bam  --output_bam hap.Chr$i.lower.sorted.mdup.bam --output_txt hap.Chr$i.lower.sorted.mdup.bam.out.txt --target_chr Chr$i" ;done > tmp1
+for i in {1..12};do echo "python3 compare.actual.expected.position.py --ranges lower.reads.coordination.txt.Chr$i.ID --input_bam lower.sorted.mdup.haploid.bam  --output_bam hap.Chr$i.lower.sorted.mdup.bam --output_txt hap.Chr$i.lower.sorted.mdup.bam.out.txt --target_chr Chr$i" ;done > tmp1
 cat tmp1 | parallel -j 12
 ```
 
