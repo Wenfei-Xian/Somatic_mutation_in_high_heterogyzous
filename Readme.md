@@ -16,3 +16,9 @@ cat tmp | parallel -j 168
 cat tmp.*.out > lower.reads.coordination.txt
 rm tmp tmp.*.out
 ```
+## step3 split the position by chromosomes
+```
+perl /ebio/abt6/wxian/script/HQSNV/split.pl lower.reads.coordination.txt
+```
+
+
