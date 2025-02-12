@@ -47,7 +47,7 @@ def process_bam(input_bam, output_bam, output_txt, acceptable_ranges, target_chr
             # 如果没有期望范围，显示 "None"，否则格式化期望范围
             expected_str = ";".join([f"{chr_}:{start}-{end}" for chr_, start, end in expected_positions]) if expected_positions else "None"
 
-            if is_in_acceptable_range(read, acceptable_ranges) and not has_excessive_soft_clipping(read):
+            if is_in_acceptable_range(read, acceptable_ranges) :
                 output_bam_file.write(read)  # 只写入符合范围且剪切不过多的 reads
             else:
                 txt_file.write(f"{read.query_name}\t{pair_label}\t{read.reference_name}\t{read.reference_start}\t{read.reference_end}\t{expected_str}\n")
